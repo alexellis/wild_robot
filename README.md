@@ -17,8 +17,14 @@ The state of this repository will start as a code-dump and will be gradually doc
 
 #### Operating the robot
 
-The entrypoint is the [drive.py](https://github.com/alexellis/wild_robot/blob/master/drive.py) script.
+The entrypoint and main control-loop is in [drive.py](https://github.com/alexellis/wild_robot/blob/master/drive.py).
 
+* Controller button/axis presses are picked up from PyGame via [joystick.py](https://github.com/alexellis/wild_robot/blob/master/joystick.py)
+* Motor/servo commands are sent to an Arduino via [arduino.py](https://github.com/alexellis/wild_robot/blob/master/arduino.py)
+
+
+#### Controls:
+ 
 * `[select]` button will safely shut-down the robot if you hold it in.
 * `[left_trigger]/[right_trigger]` moves forwards/backwards
 
