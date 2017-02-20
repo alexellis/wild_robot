@@ -1,0 +1,120 @@
+import pygame
+import sys
+import joystick_reader
+
+class ps3:
+	def __init__(self,port):
+		self.port=port
+		pygame.init()
+		pygame.joystick.init()
+		self.joystick1 = pygame.joystick.Joystick(port)
+
+	def connect(self):
+		self.joystick1.init()
+
+	def pump(self):
+		pygame.event.pump()
+
+	def get_buttons(self,debug=False):
+		self.pump()
+
+		joystick = joystick_reader()
+		return joystick.read(self.joystick1)
+
+	def get_buttons(self,debug=False):
+		self.pump()
+
+		if(debug==True):
+			for x in range(self.joystick1.get_numbuttons()):
+				print str(x) +": " + str(self.joystick1.get_button(x))
+
+		pad_left=7
+		pad_left_on=False
+		pad_right=5
+		pad_right_on=False
+
+		pad_up=4
+		pad_up_on=False
+		pad_down=6
+		pad_down_on=False
+
+		square = 15
+		cross = 14
+		right_shoulder =11
+		left_shoulder=10
+		right_trigger =9
+		left_trigger=8
+
+		push_left=1
+		push_right=2
+
+		push_left_on=False
+		push_right_on=False
+
+		cross_on=False
+		circle_on=False
+		square_on=False
+		right_shoulder_on=False
+		left_shoulder_on=False
+		right_trigger_on=False
+		left_trigger_on=False
+
+		if(self.joystick1.get_button(pad_left)==1):
+			pad_left_on=True
+		if(self.joystick1.get_button(pad_right)==1):
+			pad_right_on=True
+		if(self.joystick1.get_button(pad_up)==1):
+			pad_up_on=True
+		if(self.joystick1.get_button(pad_down)==1):
+			pad_down_on=True
+
+		if(self.joystick1.get_button(cross)==1):
+			cross_on=True
+
+		if(self.joystick1.get_button(square)==1):
+			square_on=True
+			
+		if self.joystick1.get_button(left_shoulder)==1:
+			left_shoulder_on=True
+		if self.joystick1.get_button(right_shoulder)==1:
+			right_shoulder_on=True
+
+		if(self.joystick1.get_button(right_trigger)==1):
+			right_trigger_on=True
+		if self.joystick1.get_button(left_trigger)==1:
+			left_trigger_on=True
+
+		if(self.joystick1.get_button(push_left)==1):
+			push_left_on=True
+		if self.joystick1.get_button(push_right)==1:
+			push_right_on=True
+		# elif joystick1.get_button(right_trigger):
+		# 	print "Close gripper"
+		# elif joystick1.get_button(left_trigger):
+		# 	print "Open gripper"
+		return {
+			'right_shoulder':right_shoulder_on, 
+			'left_shoulder':left_shoulder_on,
+			'right_trigger':right_trigger_on,
+			'left_trigger':left_trigger_on,
+			'push_left':push_left_on, 
+			'push_right':push_right_on,
+			'square':square_on,
+			'cross':cross_on,
+			'pad_left': pad_left_on,
+			'pad_right': pad_right_on,
+			'pad_up': pad_up_on,
+			'pad_down': pad_down_on
+			}
+
+if(__name__=='__main__'):
+	import time
+        ps=ps3(0)
+        ps.connect()
+        while(True):
+                ps.pump()
+                b=ps.get_buttons(debug=True)
+                print b
+		time.sleep(0.5)
+
+
