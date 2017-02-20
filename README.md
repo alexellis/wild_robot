@@ -12,7 +12,7 @@ The state of this repository will start as a code-dump and will be gradually doc
 #### Pre-reqs
 * sixpair must be downloaded and installed
 * Genuine PS3 controller is needed
-* Arduino nano or similar programmed and attached to /dev/tty*
+* Arduino nano or similar must be [programmed](https://github.com/alexellis/wild_robot/blob/master/arduino/wild1.ino) and attached to /dev/tty*
 * Pygame is a depdency for reading the game controller
 
 #### Operating the robot
@@ -21,7 +21,7 @@ The entrypoint and main control-loop is in [drive.py](https://github.com/alexell
 
 * Controller button/axis presses are picked up from PyGame via [joystick.py](https://github.com/alexellis/wild_robot/blob/master/joystick.py) and [joystick_reader.py](https://github.com/alexellis/wild_robot/blob/master/joystick_reader.py)
 * Motor/servo commands are sent to an Arduino via [arduino.py](https://github.com/alexellis/wild_robot/blob/master/arduino.py)
-
+* The Arduino controls motors/servos with following C code: [wild1.ino](https://github.com/alexellis/wild_robot/blob/master/arduino/wild1.ino)
 
 #### Controls:
  
@@ -36,5 +36,5 @@ You can also drive the robot with rudimentary controls without a PS3 controller 
 [x] Scrape Python code from robot
 [ ] Re-test python code after being mothballed
 [ ] Link back to blog post
-[ ] Find / reconstitute Arduino motor-controller code in C
+[x] Find / reconstitute Arduino motor-controller code in C
 ```
