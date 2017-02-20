@@ -17,12 +17,12 @@ The state of this repository will start as a code-dump and will be gradually doc
 
 #### Operating the robot
 
-The entrypoint is the `drive.py` script.
+The entrypoint is the [drive.py](https://github.com/alexellis/wild_robot/blob/master/drive.py) script.
 
 * `[select]` button will safely shut-down the robot if you hold it in.
 * `[left_trigger]/[right_trigger]` moves forwards/backwards
 
-You can also drive the robot with rudimentary controls without a PS3 controller if you use `keyboard_drive.py`.
+You can also drive the robot with rudimentary controls without a PS3 controller if you use [keyboard_drive.py](https://github.com/alexellis/wild_robot/blob/master/keyboard_drive.py).
 
 ### Todo:
 
