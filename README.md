@@ -19,7 +19,7 @@ The state of this repository will start as a code-dump and will be gradually doc
 
 The entrypoint and main control-loop is in [drive.py](https://github.com/alexellis/wild_robot/blob/master/drive.py).
 
-* Controller button/axis presses are picked up from PyGame via [joystick.py](https://github.com/alexellis/wild_robot/blob/master/joystick.py)
+* Controller button/axis presses are picked up from PyGame via [joystick.py](https://github.com/alexellis/wild_robot/blob/master/joystick.py) and [joystick_reader.py](https://github.com/alexellis/wild_robot/blob/master/joystick_reader.py)
 * Motor/servo commands are sent to an Arduino via [arduino.py](https://github.com/alexellis/wild_robot/blob/master/arduino.py)
 
 
